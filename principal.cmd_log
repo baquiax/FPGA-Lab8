@@ -1,0 +1,9 @@
+vhdtdtfi -lib work C:/Users/Electronica/Desktop/Lab8/Lab8/principal.v -lang verilog -prj Lab8 -o principal.spl -module principal -template C:/Xilinx/12.1/ISE_DS/ISE/data/splveri.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e principal.spl C:/Users/Electronica/Desktop/Lab8/Lab8/principal.sym 
+xst -intstyle ise -ifn "C:/Users/Electronica/Desktop/Lab8/Lab8/principal.xst" -ofn "C:/Users/Electronica/Desktop/Lab8/Lab8/principal.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc3s100e-cp132-4 principal.ngc principal.ngd  
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc principal.ucf -p xc3s100e-cp132-4 principal.ngc principal.ngd  
+map -intstyle ise -p xc3s100e-cp132-4 -cm area -ir off -pr off -c 100 -o principal_map.ncd principal.ngd principal.pcf 
+par -w -intstyle ise -ol high -t 1 principal_map.ncd principal.ncd principal.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml principal.twx principal.ncd -o principal.twr principal.pcf -ucf principal.ucf 
+bitgen -intstyle ise -f principal.ut principal.ncd 

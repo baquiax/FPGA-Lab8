@@ -1,0 +1,4 @@
+NET "Entradas[0]" LOC = P11;
+NET "Entradas[1]" LOC = L3;
+NET "Selector" LOC = K3;
+NET "Salida" LOC = M5;

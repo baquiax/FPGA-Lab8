@@ -1,0 +1,9 @@
+[Inputs]
+Selector
+=Entradas[1:0]=
+[Outputs]
+Salida
+[BiDir]
+[ATTRIBUTES]
+VeriModel principal
+
